@@ -25,6 +25,8 @@ export const Providers = ({ children }: { children: React.ReactNode }) => {
     i18n.changeLanguage(initData?.user?.languageCode);
   }, [initData]);
 
+  console.log(pathname);
+
   const backButton = useBackButton();
   const router = useRouter();
   React.useEffect(() => {
@@ -36,7 +38,8 @@ export const Providers = ({ children }: { children: React.ReactNode }) => {
       backButton.off("click", listener);
       backButton.hide();
     };
-  }, [backButton, router, pathname]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [backButton]);
 
   return (
     <I18nextProvider i18n={i18n}>
