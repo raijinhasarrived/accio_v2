@@ -15,6 +15,7 @@ export default function RootLayout({
 }) {
   const options: InitOptions = {
     cssVars: true,
+    async: true,
   };
 
   return (
