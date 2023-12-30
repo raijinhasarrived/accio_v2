@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { useLaunchParams, useThemeParams } from "@tma.js/sdk-react";
 import Lottie from "lottie-react";
