@@ -2,14 +2,14 @@
 
 import React from "react";
 import { useBackButton } from "@tma.js/sdk-react";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function CreatePage() {
   const backButton = useBackButton();
-  const router = useRouter();
+  const linkRef = React.useRef<HTMLAnchorElement>(null);
 
   React.useEffect(() => {
-    const listener = () => router.push("/orders");
+    const listener = () => linkRef.current?.click();
     backButton.on("click", listener);
     backButton.show();
 
@@ -17,8 +17,12 @@ export default function CreatePage() {
       backButton.off("click", listener);
       backButton.hide();
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [backButton]);
 
-  return <div>page</div>;
+  return (
+    <div>
+      crepate page
+      <Link className="hidden" ref={linkRef} href="/orders" />
+    </div>
+  );
 }
