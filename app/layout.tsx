@@ -4,7 +4,7 @@ import Script from "next/script";
 import { Open_Sans } from "next/font/google";
 import "./globals.css";
 
-import { DisplayGate, InitOptions, SDKProvider } from "@tma.js/sdk-react";
+import { DisplayGate, type InitOptions, SDKProvider } from "@tma.js/sdk-react";
 import { LottieLoader } from "@/components/ui/lottie-loader";
 import { Providers } from "./providers";
 const openSans = Open_Sans({ subsets: ["cyrillic", "latin"] });

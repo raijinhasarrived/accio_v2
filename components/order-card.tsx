@@ -1,5 +1,5 @@
 import React from "react";
-import { useInitData, useThemeParams } from "@tma.js/sdk-react";
+import { useInitData, useThemeParams, useUtils } from "@tma.js/sdk-react";
 import { useTranslation } from "react-i18next";
 
 import {
@@ -23,7 +23,9 @@ type OrderCard = {
 
 export const OrderCard = ({ order }: OrderCard) => {
   const { t } = useTranslation();
+  const utils = useUtils();
 
+  utils.openTelegramLink;
   const initData = useInitData();
   const theme = useThemeParams();
 
@@ -62,7 +64,6 @@ export const OrderCard = ({ order }: OrderCard) => {
           {order.price} {order.curr}
         </Badge>
         <div className="flex gap-2">
-          {" "}
           <Badge className="w-fit select-none">{orderCargo}</Badge>
           {order.prepayment && (
             <Badge className={`w-fit select-none`}>
@@ -74,17 +75,19 @@ export const OrderCard = ({ order }: OrderCard) => {
       <CardFooter className="flex flex-col items-start gap-2">
         <OrderDetails details={order.details!} />
         {shouldShowBadge && (
-          <a href={`https://t.me/${order.owner}`} target="_blank">
-            <Button
-              style={{
-                backgroundColor: theme.buttonColor!,
-                color: theme.buttonTextColor!,
-              }}
-              className="text-center"
-            >
-              @{order.owner}
-            </Button>
-          </a>
+          //<a href={`https://t.me/${order.owner}`} target="_blank">
+          <Button
+            onClick={() =>
+              utils.openTelegramLink(`https://t.me/${order.owner}`)
+            }
+            style={{
+              backgroundColor: theme.buttonColor!,
+              color: theme.buttonTextColor!,
+            }}
+            className="text-center"
+          >
+            @{order.owner}
+          </Button>
         )}
 
         {/* {isCurrentUserOwner && (
