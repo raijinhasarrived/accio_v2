@@ -2,8 +2,8 @@
 
 import React from "react";
 import { useBackButton } from "@tma.js/sdk-react";
-import { useRouter } from "next/router";
-import { usePathname } from "next/navigation";
+
+import { usePathname, useRouter } from "next/navigation";
 
 export default function CreatePage() {
   const backButton = useBackButton();
