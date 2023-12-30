@@ -7,8 +7,8 @@ import { useRouter } from "next/navigation";
 
 export default function CreatePage() {
   const backButton = useBackButton();
-
   const router = useRouter();
+
   React.useEffect(() => {
     const listener = () => router.push("/orders");
     backButton.on("click", listener);
@@ -19,7 +19,7 @@ export default function CreatePage() {
       backButton.hide();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [backButton]);
+  }, []);
 
   return <div>crepate page</div>;
 }
