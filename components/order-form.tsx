@@ -38,7 +38,6 @@ import { Checkbox } from "./ui/checkbox";
 import { Textarea } from "./ui/textarea";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
-import { SearchCity } from "./search-city";
 
 const formSchema = z.object({
   cargo: z.string().min(4, {
@@ -145,11 +144,11 @@ export const OrderForm = () => {
           render={({ field }) => (
             <FormItem className="flex flex-col items-start space-y-3">
               <FormLabel className="after:ml-0.5 after:text-red-500 after:content-['*']">
-                {t("orderForm.from")}{" "}
+                {t("orderForm.from")}
               </FormLabel>
-              <SearchCity
+              <Input
                 placeholder={t("orderForm.description")}
-                onCitySelect={field.onChange}
+                onChange={field.onChange}
               />
             </FormItem>
           )}
@@ -162,9 +161,9 @@ export const OrderForm = () => {
               <FormLabel className="after:ml-0.5 after:text-red-500 after:content-['*']">
                 {t("orderForm.to")}
               </FormLabel>
-              <SearchCity
+              <Input
                 placeholder={t("orderForm.description")}
-                onCitySelect={field.onChange}
+                onChange={field.onChange}
               />
             </FormItem>
           )}
