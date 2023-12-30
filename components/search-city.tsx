@@ -1,3 +1,5 @@
+"use client";
+
 import usePlacesAutocomplete from "use-places-autocomplete";
 import { Input } from "./ui/input";
 import { Separator } from "./ui/separator";
