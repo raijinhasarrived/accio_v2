@@ -3,7 +3,8 @@ import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTranslation } from "react-i18next";
-import { useThemeParams, useMiniApp } from "@tma.js/sdk-react";
+import { useThemeParams } from "@tma.js/sdk-react";
+import { LineHeightIcon } from "@radix-ui/react-icons";
 
 import { pageLinks } from "@/lib/constants";
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from "./ui/sheet";
@@ -14,7 +15,7 @@ export const OrderLinks = () => {
   const theme = useThemeParams();
   const sheetOpenRef = React.useRef<HTMLButtonElement>(null);
   const sheetCloseRef = React.useRef<HTMLButtonElement>(null);
-  const webApp = useMiniApp();
+
   const pathname = usePathname();
   const [prevPathname, setPrevPathname] = React.useState<string | null>(null);
 
@@ -45,20 +46,20 @@ export const OrderLinks = () => {
   return (
     <Sheet>
       <SheetTrigger
-        className="w-28 rounded-sm px-2 text-center text-lg"
+        className="w-fit rounded-sm px-2 text-center text-lg"
         style={{
           color: theme.buttonTextColor!,
           backgroundColor: theme.buttonColor!,
         }}
         ref={sheetOpenRef}
       >
-        {t("filter.filter")}
+        <LineHeightIcon />
       </SheetTrigger>
 
       <SheetContent
         style={{ backgroundColor: theme.backgroundColor! }}
         side="top"
-        className={`grid h-1/3 grid-cols-2 items-end bg-[var(--tg-theme-bg-color)] py-3`}
+        className={`grid h-1/3 grid-cols-2 items-end bg-[var(--tg-background-color)] py-3`}
       >
         {pageLinks.map((link) => (
           <Badge
