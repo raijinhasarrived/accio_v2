@@ -22,5 +22,9 @@ export default function CreatePage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return <OrderForm />;
+  return (
+    <div>
+      <OrderForm />
+    </div>
+  );
 }
