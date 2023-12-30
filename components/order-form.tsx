@@ -129,7 +129,7 @@ export const OrderForm = () => {
       mainButton.hide();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [mainButton]);
+  }, []);
 
   return (
     <Form {...form}>
