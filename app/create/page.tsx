@@ -17,7 +17,8 @@ export default function CreatePage() {
       backButton.off("click", listener);
       backButton.hide();
     };
-  }, [backButton, router]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [backButton]);
 
   return <div>page</div>;
 }
