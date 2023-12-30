@@ -4,6 +4,7 @@ import React from "react";
 import { useBackButton } from "@tma.js/sdk-react";
 
 import { useRouter } from "next/navigation";
+import { OrderForm } from "@/components/order-form";
 
 export default function CreatePage() {
   const backButton = useBackButton();
@@ -21,5 +22,5 @@ export default function CreatePage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return <div>crepate page</div>;
+  return <OrderForm />;
 }
