@@ -62,10 +62,12 @@ export default function RootLayout({
             <body className={openSans.className}>
               {children}
               <Script
+                strategy="beforeInteractive"
+                async
+                defer
                 id="googlemaps"
                 type="text/javascript"
-                defer
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1ePPnRQpefW7eL2E51epbJ5WKwwf-lgo&libraries=places&callback=Function.prototype"
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1ePPnRQpefW7eL2E51epbJ5WKwwf-lgo&libraries=places"
               />
             </body>
           </Providers>
