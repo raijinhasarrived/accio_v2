@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { useBackButton } from "@tma.js/sdk-react";
 import { redirect } from "next/navigation";
