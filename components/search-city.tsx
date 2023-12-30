@@ -16,7 +16,6 @@ export const SearchCity = ({ onCitySelect, placeholder }: SearchCityProps) => {
     clearSuggestions,
     // eslint-disable-next-line react-server-components/use-client
   } = usePlacesAutocomplete({
-    callbackName: "YOUR_CALLBACK_NAME",
     requestOptions: {
       types: ["country", "locality"],
       language: "ru",
