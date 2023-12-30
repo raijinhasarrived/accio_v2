@@ -13,7 +13,7 @@ import { Badge } from "./ui/badge";
 export const OrderLinks = () => {
   const { t } = useTranslation();
   const theme = useThemeParams();
-  const sheetOpenRef = React.useRef<HTMLButtonElement>(null);
+
   const sheetCloseRef = React.useRef<HTMLButtonElement>(null);
 
   const pathname = usePathname();
@@ -45,15 +45,8 @@ export const OrderLinks = () => {
 
   return (
     <Sheet>
-      <SheetTrigger
-        className="w-fit rounded-sm px-2 text-center text-lg"
-        style={{
-          color: theme.buttonTextColor!,
-          backgroundColor: theme.buttonColor!,
-        }}
-        ref={sheetOpenRef}
-      >
-        <LineHeightIcon />
+      <SheetTrigger className="w-fit rounded-sm bg-[var(--tg-theme-button-color)] p-2 text-center text-lg text-[var(--tg-theme-button-text-color)]">
+        <LineHeightIcon className="h-9 w-9" />
       </SheetTrigger>
 
       <SheetContent

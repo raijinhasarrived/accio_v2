@@ -20,22 +20,22 @@ export default function OrdersLayout({
       <div className="fixed left-0 top-0 mx-auto flex w-full justify-between bg-[var(--tg-background-color)] p-2">
         <OrderLinks />
         <Link
-          className="w-fit rounded-sm bg-[var(--tg-theme-button-color)] px-2 text-center text-lg text-[var(--tg-theme-button-text-color)]"
+          className="w-fit rounded-sm bg-[var(--tg-theme-button-color)] p-2 text-center text-lg text-[var(--tg-theme-button-text-color)]"
           href="/create"
         >
-          <FilePlusIcon className="h-6 w-6" />
+          <FilePlusIcon className="h-9 w-9" />
         </Link>
         <Link
-          className="w-fit rounded-sm bg-[var(--tg-theme-button-color)] px-2 text-center text-lg text-[var(--tg-theme-button-text-color)]"
+          className="w-fit rounded-sm bg-[var(--tg-theme-button-color)] p-2 text-center text-lg text-[var(--tg-theme-button-text-color)]"
           href="/user"
         >
-          <PersonIcon className="h-6 w-6" />
+          <PersonIcon className="h-9 w-9" />
         </Link>
         <Link
-          className="w-fit rounded-sm bg-[var(--tg-theme-button-color)] px-2 text-center text-lg text-[var(--tg-theme-button-text-color)]"
+          className="w-fit rounded-sm bg-[var(--tg-theme-button-color)] p-2 text-center text-lg text-[var(--tg-theme-button-text-color)]"
           href="/help"
         >
-          <QuestionMarkCircledIcon className="h-6 w-6" />
+          <QuestionMarkCircledIcon className="h-9 w-9" />
         </Link>
       </div>
       {children}
