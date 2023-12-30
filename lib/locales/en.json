@@ -1,0 +1,48 @@
+{
+  "mainPage": {
+    "create": "Create",
+    "find": "Find",
+    "user": "My Ads",
+    "help": "Help",
+    "msg": "Bot is available only on the Accio channel",
+    "action": "Go"
+  },
+  "orderForm": {
+    "from": "Pick-up Location",
+    "to": "Delivery Location",
+    "description": "Enter city or country",
+    "fromto": "Round Trip",
+    "yes": "Yes",
+    "body": {
+      "choose": "Choose Body",
+      "name": "Body",
+      "tent": "Tent",
+      "container": "Container",
+      "20tank": "20' Tank Container",
+      "40tank": "40' Tank Container",
+      "fridge": "Refrigerator"
+    },
+    "details": "Details",
+    "detdes": "Add important details",
+    "prepay": "Prepayment",
+    "price": "Price",
+    "curr": "Currency",
+    "choose": "Select",
+    "submit": "Submit",
+    "more": "More",
+    "success": "Success",
+    "msg": "Ad created:"
+  },
+  "filter": {
+    "filter": "Filter",
+    "all": "All"
+  },
+  "orderCard": {
+    "roundtrip": "Round Trip",
+    "prepayment": "Prepayment"
+  },
+  "help": {
+    "about": "This mini-application is designed to optimize and simplify interaction between cargo owners and carriers.",
+    "feedback": "For any questions"
+  }
+}

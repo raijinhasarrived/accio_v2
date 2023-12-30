@@ -1,0 +1,48 @@
+{
+  "mainPage": {
+    "create": "Yaratish",
+    "find": "Topish",
+    "user": "E'lonlarim",
+    "help": "Yordam",
+    "msg": "Bot faqat Accio kanalida ishlaydi",
+    "action": "O'tish"
+  },
+  "orderForm": {
+    "from": "Yuklash joyi",
+    "to": "Yuklab olish joyi",
+    "description": "Shahar yoki davlatni kiriting",
+    "fromto": "Borib kelish",
+    "yes": "Ha",
+    "body": {
+      "choose": "Kuzovni tanlang",
+      "name": "Kuzov",
+      "tent": "Tent",
+      "container": "Konteynervoz",
+      "20tank": "20' tank konteyner",
+      "40tank": "40' tank konteyner",
+      "fridge": "Refrizherator"
+    },
+    "details": "Tafsilotlar",
+    "detdes": "Muhim tafsilotlarni qo'shing",
+    "prepay": "Avans",
+    "price": "Narx",
+    "curr": "Valyuta",
+    "choose": "Tanlash",
+    "submit": "Tasdiqlash",
+    "more": "Batafsil",
+    "success": "Muvaffaqiyatli",
+    "msg": "E'lon yaratildi:"
+  },
+  "filter": {
+    "filter": "Filtr",
+    "all": "Hammasi"
+  },
+  "orderCard": {
+    "roundtrip": "Borib kelish",
+    "prepayment": "Avans"
+  },
+  "help": {
+    "about": "Bu ilova yuk egasi va yuk tashishchilar o'rtasidagi hamkorlikni optimallashtirish va osonlashtirish maqsadida ishlab chiqilgan.",
+    "feedback": "Savollar bo'yicha"
+  }
+}
