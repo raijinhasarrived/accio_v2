@@ -17,7 +17,7 @@ export default function CreatePage() {
       backButton.off("click", listener);
       backButton.hide();
     };
-  }, [backButton]);
+  }, [backButton, router]);
 
   return <div>page</div>;
 }
