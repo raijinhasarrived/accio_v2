@@ -65,7 +65,7 @@ export default function RootLayout({
                 id="googlemaps"
                 type="text/javascript"
                 async
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1ePPnRQpefW7eL2E51epbJ5WKwwf-lgo&libraries=places"
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1ePPnRQpefW7eL2E51epbJ5WKwwf-lgo&libraries=places&callback=Function.prototype"
               />
             </body>
           </Providers>
