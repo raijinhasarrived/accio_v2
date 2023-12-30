@@ -4,7 +4,8 @@ import Script from "next/script";
 import { Open_Sans } from "next/font/google";
 import "./globals.css";
 
-import { InitOptions, SDKProvider } from "@tma.js/sdk-react";
+import { DisplayGate, InitOptions, SDKProvider } from "@tma.js/sdk-react";
+import { LottieLoader } from "@/components/ui/lottie-loader";
 import { Providers } from "./providers";
 const openSans = Open_Sans({ subsets: ["cyrillic", "latin"] });
 
@@ -18,6 +19,31 @@ export default function RootLayout({
     async: true,
   };
 
+  interface SDKProviderErrorProps {
+    error: unknown;
+  }
+
+  function SDKProviderError({ error }: SDKProviderErrorProps) {
+    return (
+      <div>
+        Oops. Something went wrong.
+        <blockquote>
+          <code>
+            {error instanceof Error ? error.message : JSON.stringify(error)}
+          </code>
+        </blockquote>
+      </div>
+    );
+  }
+
+  function SDKProviderLoading() {
+    return <LottieLoader />;
+  }
+
+  function SDKInitialState() {
+    return <LottieLoader />;
+  }
+
   return (
     <html lang="en">
       <head>
@@ -27,16 +53,22 @@ export default function RootLayout({
         />
       </head>
       <SDKProvider options={options}>
-        <Providers>
-          <body className={openSans.className}>
-            {children}
-            <Script
-              id="googlemaps"
-              type="text/javascript"
-              src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1ePPnRQpefW7eL2E51epbJ5WKwwf-lgo&libraries=places"
-            />
-          </body>
-        </Providers>
+        <DisplayGate
+          error={SDKProviderError}
+          loading={SDKProviderLoading}
+          initial={SDKInitialState}
+        >
+          <Providers>
+            <body className={openSans.className}>
+              {children}
+              <Script
+                id="googlemaps"
+                type="text/javascript"
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1ePPnRQpefW7eL2E51epbJ5WKwwf-lgo&libraries=places"
+              />
+            </body>
+          </Providers>
+        </DisplayGate>
       </SDKProvider>
     </html>
   );
