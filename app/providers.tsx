@@ -1,5 +1,5 @@
 import React from "react";
-import { DisplayGate, useInitData } from "@tma.js/sdk-react";
+import { DisplayGate, useInitData, useSDKContext } from "@tma.js/sdk-react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { I18nextProvider } from "react-i18next";
 
@@ -47,16 +47,14 @@ export const Providers = ({ children }: { children: React.ReactNode }) => {
   }, [initData]);
 
   return (
-    <I18nextProvider i18n={i18n}>
-      <QueryClientProvider client={client}>
-        <DisplayGate
-          error={SDKProviderError}
-          loading={SDKProviderLoading}
-          initial={SDKInitialState}
-        >
-          {children}
-        </DisplayGate>
-      </QueryClientProvider>
-    </I18nextProvider>
+    <DisplayGate
+      error={SDKProviderError}
+      loading={SDKProviderLoading}
+      initial={SDKInitialState}
+    >
+      <I18nextProvider i18n={i18n}>
+        <QueryClientProvider client={client}>{children}</QueryClientProvider>
+      </I18nextProvider>
+    </DisplayGate>
   );
 };
