@@ -2,13 +2,14 @@
 
 import React from "react";
 import { useBackButton } from "@tma.js/sdk-react";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function UserPage() {
   const backButton = useBackButton();
+  const router = useRouter();
 
   React.useEffect(() => {
-    const listener = () => redirect("/orders");
+    const listener = () => router.push("/orders");
     backButton.on("click", listener);
     backButton.show();
 
