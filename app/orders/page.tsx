@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Lottie from "lottie-react";
-import { useBackButton } from "@tma.js/sdk-react";
+
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { useInView } from "react-intersection-observer";
 
@@ -18,18 +18,18 @@ export default function Orders() {
   const linkRef = React.useRef<HTMLAnchorElement>(null);
   const { ref, inView } = useInView();
 
-  const backButton = useBackButton();
+  // const backButton = useBackButton();
 
-  React.useEffect(() => {
-    const listener = () => linkRef.current?.click();
-    backButton.on("click", listener);
-    backButton.show();
+  // React.useEffect(() => {
+  //   const listener = () => linkRef.current?.click();
+  //   backButton.on("click", listener);
+  //   backButton.show();
 
-    return () => {
-      backButton.off("click", listener);
-      backButton.hide();
-    };
-  }, [backButton]);
+  //   return () => {
+  //     backButton.off("click", listener);
+  //     backButton.hide();
+  //   };
+  // }, [backButton]);
 
   const {
     data: orders,
