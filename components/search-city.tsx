@@ -1,6 +1,3 @@
-"use client";
-
-import { useThemeParams } from "@tma.js/sdk-react";
 import usePlacesAutocomplete from "use-places-autocomplete";
 import { Input } from "./ui/input";
 import { Separator } from "./ui/separator";
@@ -11,14 +8,15 @@ type SearchCityProps = {
 };
 
 export const SearchCity = ({ onCitySelect, placeholder }: SearchCityProps) => {
-  const theme = useThemeParams();
   const {
     ready,
     value,
     suggestions: { status, data },
     setValue,
     clearSuggestions,
+    // eslint-disable-next-line react-server-components/use-client
   } = usePlacesAutocomplete({
+    callbackName: "PLACES",
     requestOptions: {
       types: ["country", "locality"],
       language: "ru",
@@ -73,8 +71,7 @@ export const SearchCity = ({ onCitySelect, placeholder }: SearchCityProps) => {
       {status === "OK" && (
         <div className="flex flex-col gap-2">
           <ul
-            style={{ backgroundColor: theme.backgroundColor! }}
-            className={`absolute p-2 shadow-sm`}
+            className={`absolute bg-[var(--tg-background-color)] p-2 shadow-sm`}
           >
             {renderSuggestions()}
           </ul>

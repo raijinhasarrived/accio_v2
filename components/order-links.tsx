@@ -52,7 +52,7 @@ export const OrderLinks = () => {
       <SheetContent
         style={{ backgroundColor: theme.backgroundColor! }}
         side="top"
-        className={`grid h-1/3 grid-cols-2 items-end bg-[var(--tg-background-color)] py-3`}
+        className="grid h-1/3 grid-cols-2 items-end bg-[var(--tg-background-color)] py-3"
       >
         {pageLinks.map((link) => (
           <Badge
