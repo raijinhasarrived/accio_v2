@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { useInitData } from "@tma.js/sdk-react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";

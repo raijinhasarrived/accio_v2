@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { useInitData, useThemeParams, useUtils } from "@tma.js/sdk-react";
 import { useTranslation } from "react-i18next";

@@ -1,3 +1,5 @@
+"use client";
+
 import { usePopup, useThemeParams } from "@tma.js/sdk-react";
 import { Button } from "./button";
 import { useTranslation } from "react-i18next";
