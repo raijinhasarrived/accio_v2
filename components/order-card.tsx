@@ -24,6 +24,7 @@ import { OrderDetails } from "@/components/ui/order-details";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/supabase";
+import { useQueryClient } from "@tanstack/react-query";
 
 type OrderCard = {
   order: Order;
@@ -54,13 +55,14 @@ export const OrderCard = ({ order }: OrderCard) => {
 
     if (result === "order-delete") {
       try {
-        const { error, status } = await supabase
+        const { status } = await supabase
           .from("orders")
           .delete()
           .eq("id", order.id);
 
-        console.log(status);
-        console.log(error);
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        const queryClient = useQueryClient();
+        queryClient.invalidateQueries(["orders"]);
       } catch (error) {
         console.log(error);
       }
