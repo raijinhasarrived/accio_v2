@@ -46,7 +46,7 @@ export const OrderLinks = () => {
   return (
     <Sheet>
       <SheetTrigger className="w-fit rounded-sm bg-[var(--tg-theme-button-color)] p-2 text-center text-lg text-[var(--tg-theme-button-text-color)]">
-        <LineHeightIcon className="h-9 w-9" />
+        <LineHeightIcon className="h-6 w-6" />
       </SheetTrigger>
 
       <SheetContent

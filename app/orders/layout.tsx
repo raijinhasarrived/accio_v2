@@ -23,19 +23,19 @@ export default function OrdersLayout({
           className="w-fit rounded-sm bg-[var(--tg-theme-button-color)] p-2 text-center text-lg text-[var(--tg-theme-button-text-color)]"
           href="/create"
         >
-          <FilePlusIcon className="h-9 w-9" />
+          <FilePlusIcon className="h-6 w-6" />
         </Link>
         <Link
           className="w-fit rounded-sm bg-[var(--tg-theme-button-color)] p-2 text-center text-lg text-[var(--tg-theme-button-text-color)]"
           href="/user"
         >
-          <PersonIcon className="h-9 w-9" />
+          <PersonIcon className="h-6 w-6" />
         </Link>
         <Link
           className="w-fit rounded-sm bg-[var(--tg-theme-button-color)] p-2 text-center text-lg text-[var(--tg-theme-button-text-color)]"
           href="/help"
         >
-          <QuestionMarkCircledIcon className="h-9 w-9" />
+          <QuestionMarkCircledIcon className="h-6 w-6" />
         </Link>
       </div>
       {children}
