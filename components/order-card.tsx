@@ -54,12 +54,13 @@ export const OrderCard = ({ order }: OrderCard) => {
 
     if (result === "order-delete") {
       try {
-        const response = await supabase
+        const { error, status } = await supabase
           .from("orders")
           .delete()
           .eq("id", order.id);
 
-        console.log(response.status);
+        console.log(status);
+        console.log(error);
       } catch (error) {
         console.log(error);
       }
