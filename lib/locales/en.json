@@ -39,7 +39,8 @@
   },
   "orderCard": {
     "roundtrip": "Round Trip",
-    "prepayment": "Prepayment"
+    "prepayment": "Prepayment",
+    "delete": "Delete"
   },
   "help": {
     "about": "This mini-application is designed to optimize and simplify interaction between cargo owners and carriers.",

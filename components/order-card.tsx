@@ -1,7 +1,12 @@
 "use client";
 
 import React from "react";
-import { useInitData, useThemeParams, useUtils } from "@tma.js/sdk-react";
+import {
+  useInitData,
+  usePopup,
+  useThemeParams,
+  useUtils,
+} from "@tma.js/sdk-react";
 import { useTranslation } from "react-i18next";
 
 import {
@@ -18,6 +23,7 @@ import { pageLinks } from "@/lib/constants";
 import { OrderDetails } from "@/components/ui/order-details";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { supabase } from "@/supabase";
 
 type OrderCard = {
   order: Order;
@@ -26,14 +32,43 @@ type OrderCard = {
 export const OrderCard = ({ order }: OrderCard) => {
   const { t } = useTranslation();
   const utils = useUtils();
+  const popup = usePopup();
 
   utils.openTelegramLink;
   const initData = useInitData();
   const theme = useThemeParams();
 
+  const handleDelete = async () => {
+    const result = await popup.open({
+      title: `${order.owner}`,
+      message: `${t("orderCard.delete")}`,
+      buttons: [
+        { type: "cancel" },
+        {
+          type: "destructive",
+          text: `${t("orderForm.yes")}`,
+          id: "order-delete",
+        },
+      ],
+    });
+
+    if (result === "order-delete") {
+      try {
+        const response = await supabase
+          .from("orders")
+          .delete()
+          .eq("id", order.id);
+
+        console.log(response.status);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
+
   // const isCurrentUserOwner = initData?.user?.id === order.userId;
 
-  const shouldShowBadge =
+  const shouldShowLink =
     order.owner !== undefined && order.owner !== initData?.user?.username;
 
   const matchedPageLink = pageLinks.find((link) => link.value === order.cargo);
@@ -76,8 +111,7 @@ export const OrderCard = ({ order }: OrderCard) => {
       </CardContent>
       <CardFooter className="flex flex-col items-start gap-2">
         <OrderDetails details={order.details!} />
-        {shouldShowBadge && (
-          //<a href={`https://t.me/${order.owner}`} target="_blank">
+        {shouldShowLink && (
           <Button
             onClick={() =>
               utils.openTelegramLink(`https://t.me/${order.owner}`)
@@ -91,44 +125,14 @@ export const OrderCard = ({ order }: OrderCard) => {
             @{order.owner}
           </Button>
         )}
-
-        {/* {isCurrentUserOwner && (
-          <AlertDialog>
-            <AlertDialogTrigger asChild>
-              <Button className="justify-start flex gap-2 items-center" variant="secondary">
-                Статус
-              </Button>
-            </AlertDialogTrigger>
-            <AlertDialogContent>
-              <AlertDialogHeader>
-                <AlertDialogTitle>Вы уверены, что хотите изменить статус?</AlertDialogTitle>
-                <AlertDialogDescription>
-                  После изменения статуса, объяление будет перемещено из текущего списка в выбранную
-                  вами.
-                </AlertDialogDescription>
-              </AlertDialogHeader>
-              <AlertDialogFooter className="gap-2">
-                {(path === '/uz/platform/client' || path === '/platform/client') && (
-                  <>
-                    <AlertDialogAction onClick={() => handleChangeStatus(order.id!, 'done')}>
-                      Выполнен
-                    </AlertDialogAction>
-                    <AlertDialogAction onClick={() => handleChangeStatus(order.id!, 'archived')}>
-                      В архив
-                    </AlertDialogAction>
-                  </>
-                )}
-                <AlertDialogCancel>Отменить</AlertDialogCancel>
-
-                {path !== '/uz/platform/client' && path !== '/platform/client' && (
-                  <AlertDialogAction onClick={() => handleChangeStatus(order.id!, 'active')}>
-                    Активный
-                  </AlertDialogAction>
-                )}
-              </AlertDialogFooter>
-            </AlertDialogContent>
-          </AlertDialog>
-        )} */}
+        {!shouldShowLink && (
+          <Button
+            onClick={handleDelete}
+            className="bg-[var(--tg-theme-destructive-text-color)] p-2"
+          >
+            {t("orderCard.delete")}
+          </Button>
+        )}
       </CardFooter>
     </Card>
   );

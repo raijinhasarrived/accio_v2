@@ -39,7 +39,8 @@
   },
   "orderCard": {
     "roundtrip": "Borib kelish",
-    "prepayment": "Avans"
+    "prepayment": "Avans",
+    "delete": "O'chirish"
   },
   "help": {
     "about": "Bu ilova yuk egasi va yuk tashishchilar o'rtasidagi hamkorlikni optimallashtirish va osonlashtirish maqsadida ishlab chiqilgan.",
