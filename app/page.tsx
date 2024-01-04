@@ -25,7 +25,7 @@ export default function HomePage() {
   }
 
   React.useEffect(() => {
-    if (chatInstance === "2197883651804596937") {
+    if (chatInstance === "1490042131658129959") {
       redirect("/orders");
     }
   }, [chatInstance]);
