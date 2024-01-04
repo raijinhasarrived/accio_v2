@@ -24,8 +24,6 @@ import { OrderDetails } from "@/components/ui/order-details";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/supabase";
-import { useQueryClient } from "@tanstack/react-query";
-import { useRouter } from "next/navigation";
 
 type OrderCard = {
   order: Order;
@@ -35,7 +33,7 @@ export const OrderCard = ({ order }: OrderCard) => {
   const { t } = useTranslation();
   const utils = useUtils();
   const popup = usePopup();
-  const router = useRouter();
+
   utils.openTelegramLink;
   const initData = useInitData();
   const theme = useThemeParams();
@@ -57,7 +55,8 @@ export const OrderCard = ({ order }: OrderCard) => {
     if (result === "order-delete") {
       try {
         await supabase.from("orders").delete().eq("id", order.id);
-        router.refresh();
+
+        location.reload();
       } catch (error) {
         console.log(error);
       }
