@@ -3,7 +3,7 @@
 import React from "react";
 
 import { useInfiniteQuery } from "@tanstack/react-query";
-import { useBackButton, useMiniApp } from "@tma.js/sdk-react";
+import { useBackButton } from "@tma.js/sdk-react";
 
 import Lottie from "lottie-react";
 import { useInView } from "react-intersection-observer";
@@ -24,7 +24,6 @@ export default function Page({ params }: Props) {
   const router = useRouter();
   const [page, setPage] = React.useState(0);
   const backButton = useBackButton();
-  const webApp = useMiniApp();
 
   React.useEffect(() => {
     const listener = () => router.back();

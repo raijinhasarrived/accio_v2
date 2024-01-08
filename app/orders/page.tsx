@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
+
 import Lottie from "lottie-react";
 
 import { useInfiniteQuery } from "@tanstack/react-query";
@@ -15,21 +15,7 @@ import { OrderCard } from "@/components/order-card";
 import { LottieLoader } from "@/components/ui/lottie-loader";
 
 export default function Orders() {
-  const linkRef = React.useRef<HTMLAnchorElement>(null);
   const { ref, inView } = useInView();
-
-  // const backButton = useBackButton();
-
-  // React.useEffect(() => {
-  //   const listener = () => linkRef.current?.click();
-  //   backButton.on("click", listener);
-  //   backButton.show();
-
-  //   return () => {
-  //     backButton.off("click", listener);
-  //     backButton.hide();
-  //   };
-  // }, [backButton]);
 
   const {
     data: orders,
@@ -102,7 +88,6 @@ export default function Orders() {
           )}
         </button>
       </div>
-      <Link className="hidden" ref={linkRef} href="/" />
     </div>
   );
 }

@@ -68,7 +68,7 @@ export const OrderLinks = () => {
           className="h-fit w-fit text-base"
           style={"/orders" === pathname ? activeLinkStyles : linkStyles}
         >
-          <Link className="w-fit" href="/find">
+          <Link className="w-fit" href="/orders">
             {t("filter.all")}
           </Link>
         </Badge>
