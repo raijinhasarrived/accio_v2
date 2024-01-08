@@ -12,6 +12,7 @@ export const Providers = ({ children }: { children: React.ReactNode }) => {
     defaultOptions: {
       queries: {
         refetchOnWindowFocus: false,
+        keepPreviousData: true,
       },
     },
   });
